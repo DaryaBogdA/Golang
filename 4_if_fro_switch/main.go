@@ -22,11 +22,21 @@ func main() {
 	}
 
 	for i := 0; i < 10; i++ {
+		if i%2 == 0 {
+			continue
+		}
 		fmt.Println(i)
+
 	}
 
-	for age < 10 {
+	for age < 10 { //while
 		fmt.Println(age)
 		age++
+	}
+
+	for { //вечный цикл
+		if age < 10 {
+			break
+		}
 	}
 }
