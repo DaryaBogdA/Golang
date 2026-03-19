@@ -10,11 +10,19 @@ func main() {
 	inc := func(x int) int { return x + 1 }
 	fmt.Println(inc(5)) //6
 
+	var a MyInt = 10
+	fmt.Println(a.minus()) // -10
 }
 
 func square(x int) int {
 	sqr := x * x
 	return sqr
+}
+
+type MyInt int
+
+func (x MyInt) minus() MyInt {
+	return -x
 }
 
 func summ(x int, y int, z int) int {
