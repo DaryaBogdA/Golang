@@ -42,6 +42,13 @@ func main() {
 	s1[2] = 99
 	fmt.Println(s2) // [99 4 5]
 
+	arr := [5]int{1, 2, 3, 4, 5}
+	s := arr[1:3:4]             // элементы [2,3], len=2, cap=4-1=3
+	fmt.Println(len(s), cap(s)) // 2 3
+
+	s = append(s, 100) // [2,3,100]
+	fmt.Println(arr)   // [1,2,3,100,5]
+
 	nums := []int{10, 20, 30}
 	for i, v := range nums {
 		fmt.Println(i, v)

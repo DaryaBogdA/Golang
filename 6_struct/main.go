@@ -10,12 +10,12 @@ type Person struct {
 func main() {
 	person := Person{"Jora", 13}
 
-	person2 := Person{
-		name: "Jora",
-		age:  13,
-	}
+	//person2 := Person{
+	//	name: "Jora",
+	//	age:  13,
+	//}
 	person.age = 9
-	word := person2.name
+	//word := person2.name
 
 	p := Person{name: "Bob", age: 25}
 	p.birthdayValue()
@@ -23,6 +23,8 @@ func main() {
 
 	p.birthdayPointer()
 	fmt.Println(p.age) // 26
+
+	aas()
 }
 
 func (p Person) hello() {
@@ -35,4 +37,28 @@ func (p Person) birthdayValue() {
 
 func (p *Person) birthdayPointer() {
 	p.age++
+}
+
+type Account struct {
+	name string
+	age  int
+}
+
+type ManageAccount struct {
+	Account
+}
+
+func (a Account) String() string {
+	return "Standart"
+}
+
+func (m ManageAccount) String() string {
+	return "Manage Account"
+}
+
+func aas() {
+	myAcc := ManageAccount{Account{"dsgdg", 34}}
+	myAcc2 := Account{"dsgdg", 34}
+	fmt.Println(myAcc)
+	fmt.Println(myAcc2)
 }

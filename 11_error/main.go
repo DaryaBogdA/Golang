@@ -3,6 +3,7 @@ package main
 import (
 	"errors"
 	"fmt"
+	"os"
 )
 
 func divide(x, y int) (int, error) {
@@ -25,4 +26,19 @@ func main() {
 
 	panic("something bad happened")
 	//далшье не выполнится
+}
+
+func readConfig(path string) error {
+	data, err := os.ReadFile(path)
+
+	if errors.Is(err, os.ErrNotExist) {
+		fmt.Println("файл не найден")
+	}
+
+	if err != nil {
+		return fmt.Errorf("read config %s: %w", path, err)
+	}
+
+	fmt.Println(string(data))
+	return nil
 }
